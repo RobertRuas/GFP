@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
+/* 
+  Definição das variáveis globais CSS que ditam o tema base (Light).
+  Essas classes guiam a cor de fundo e do texto.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9fafb; /* Cor clara mais suave para o fundo */
+  --foreground: #111827; /* Texto escuro */
 }
 
+/* 
+  Integração automática no Tailwind v4.
+  Faremos o "font-sans" apontar para a fonte roboto carregada pelo Next.js.
+*/
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* 
+  MediaQuery nativa para alteração do tema conforme Sistema Operacional do usuário.
+*/
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #111827; /* Fundo mais escuro */
+    --foreground: #f9fafb; /* Texto claro */
   }
 }
 
+/* 
+   Reset e definição do escopo principal no body. 
+*/
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-weight: 300; /* Priorizando a fonte de peso 300 conforme os requisitos. */
 }

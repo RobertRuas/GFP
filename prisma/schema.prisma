@@ -1,0 +1,17 @@
+// Este é o seu arquivo de esquema Prisma.
+// É utilizado para definir as configurações do banco de dados e os modelos de dados.
+// Aprenda mais sobre as configurações na documentação: https://pris.ly/d/prisma-schema
+
+// O 'generator' especifica qual cliente será gerado pelo Prisma.
+// Neste caso, estamos gerando o cliente padrão para uso de código no projeto Next.js (JavaScript/TypeScript).
+generator client {
+  provider = "prisma-client-js"
+}
+
+// O 'datasource' define a configuração de conexão com o seu banco de dados.
+// Aqui estamos configurando para usar o banco de dados 'postgresql'.
+// A URL de conexão real será obtida dinamicamente da variável de ambiente 'DATABASE_URL'.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
